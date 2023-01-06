@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "360150488583",
+    "firebase_url": "https://college-b02f3-default-rtdb.firebaseio.com",
+    "project_id": "college-b02f3",
+    "storage_bucket": "college-b02f3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:360150488583:android:ee046036990cfbb01afca2",
+        "android_client_info": {
+          "package_name": "com.reemzet.collegeApp.college"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "360150488583-7bs2siapook2324pvrvlqvjfc4fl2f1r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1VVHMBG4yKGnZzw7ar3We_k-TGUw8x2U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "360150488583-7bs2siapook2324pvrvlqvjfc4fl2f1r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:360150488583:android:338aa52e02cd6adf1afca2",
+        "android_client_info": {
+          "package_name": "com.reemzet.mycollege"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "360150488583-7bs2siapook2324pvrvlqvjfc4fl2f1r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1VVHMBG4yKGnZzw7ar3We_k-TGUw8x2U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "360150488583-7bs2siapook2324pvrvlqvjfc4fl2f1r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

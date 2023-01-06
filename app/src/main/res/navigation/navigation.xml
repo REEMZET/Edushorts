@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation.xml"
+    app:startDestination="@id/userreg">
+  <fragment
+        android:id="@+id/signup"
+        android:name="com.reemzet.mycollege.UserFargments.Signup"
+        android:label="signup"
+        tools:layout="@layout/fragment_signup" >
+      <action
+          android:id="@+id/action_signup_to_otpverificatio"
+          app:destination="@id/otpverification" />
+  </fragment>
+     <fragment
+        android:id="@+id/otpverification"
+        android:name="com.reemzet.mycollege.UserFargments.OtpVerification"
+        android:label="otpverification"
+        tools:layout="@layout/fragment_otp_verification" >
+         <action
+             android:id="@+id/action_otpverification_to_userreg"
+             app:destination="@id/userreg" />
+     </fragment>
+           <fragment
+        android:id="@+id/userreg"
+        android:name="com.reemzet.mycollege.UserFargments.UserRegistration"
+        android:label="userregis"
+        tools:layout="@layout/fragment_user_registration" >
+
+               <action
+                   android:id="@+id/action_userreg_to_menuFrag"
+                   app:destination="@id/menuFrag" />
+           </fragment>
+    <fragment
+        android:id="@+id/menuFrag"
+        android:name="com.reemzet.mycollege.UserFargments.MenuFrag"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFrag_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.reemzet.mycollege.Sbte.Fragments.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home2_to_chooseStream"
+            app:destination="@id/chooseStream" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseStream"
+        android:name="com.reemzet.mycollege.Sbte.Fragments.ChooseStream"
+        android:label="fragment_choose_stream"
+        tools:layout="@layout/fragment_choose_stream" >
+        <action
+            android:id="@+id/action_chooseStream_to_subjectList"
+            app:destination="@id/subjectList" />
+    </fragment>
+    <fragment
+        android:id="@+id/subjectList"
+        android:name="com.reemzet.mycollege.Sbte.Fragments.SubjectList"
+        android:label="fragment_subject_list"
+        tools:layout="@layout/fragment_subject_list" >
+        <action
+            android:id="@+id/action_subjectList_to_pdfViewer"
+            app:destination="@id/pdfViewer" />
+    </fragment>
+    <fragment
+        android:id="@+id/pdfViewer"
+        android:name="com.reemzet.mycollege.Sbte.Fragments.PdfViewer"
+        android:label="fragment_pdf_viewer"
+        tools:layout="@layout/fragment_pdf_viewer" />
+</navigation>
