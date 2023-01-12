@@ -3,20 +3,19 @@ package com.reemzet.mycollege.Sbte.Fragments;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
-import com.airbnb.lottie.LottieAnimationView;
 import com.bumptech.glide.Glide;
 import com.downloader.Error;
 import com.downloader.OnCancelListener;
@@ -40,45 +39,54 @@ import java.io.File;
 
 public class SubjectList extends Fragment {
 
-FirebaseDatabase database;
-DatabaseReference syllabusref;
-RecyclerView syllabusrecyclerview;
-Query query;
-File folder;
-FirebaseRecyclerAdapter<SyllabusModel, SyllabusViewHolder> syllabusadapter;
-NavController navController;
-SyllabusViewHolder vholder;
-String streamkey;
+    FirebaseDatabase database;
+    DatabaseReference syllabusref;
+    RecyclerView syllabusrecyclerview;
+    Query query;
+    File folder;
+    FirebaseRecyclerAdapter<SyllabusModel, SyllabusViewHolder> syllabusadapter;
+    NavController navController;
+    SyllabusViewHolder vholder;
+    String streamkey;
+    Toolbar toolbar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_subject_list, container, false);
-        syllabusrecyclerview=view.findViewById(R.id.syllabusrecyclerview);
-        streamkey=getArguments().getString("streamkey");
+        View view = inflater.inflate(R.layout.fragment_subject_list, container, false);
+        syllabusrecyclerview = view.findViewById(R.id.syllabusrecyclerview);
+        streamkey = getArguments().getString("streamkey");
 
         syllabusrecyclerview.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        database=FirebaseDatabase.getInstance();
-        syllabusref=database.getReference("MyCollege/Sbte/syllabus/").child(streamkey);
+        database = FirebaseDatabase.getInstance();
+        syllabusref = database.getReference("MyCollege/Sbte/syllabus/").child(streamkey);
         PRDownloader.initialize(getActivity());
         folder = getContext().getFilesDir();
         loadsyllabus();
 
-        SyllabusModel syllabusModel=new SyllabusModel("M75746","Basic Civil","fsd","70","28","https://decapoda.nhm.org/pdfs/25900/25900-001.pdf");
-     //syllabusref.push().setValue(syllabusModel);
+        SyllabusModel syllabusModel = new SyllabusModel("M75746", "Basic Civil", "fsd", "70", "28", "https://decapoda.nhm.org/pdfs/25900/25900-001.pdf");
+        //syllabusref.push().setValue(syllabusModel);
 
         NavHostFragment navHostFragment =
                 (NavHostFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         assert navHostFragment != null;
 
         navController = navHostFragment.getNavController();
+        toolbar = getActivity().findViewById(R.id.toolbar);
+        toolbar.setTitle(streamkey);
+        toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.popBackStack();
+            }
+        });
 
-
-    return view;
+        return view;
     }
 
-    public void loadsyllabus(){
+    public void loadsyllabus() {
         query = syllabusref;
         FirebaseRecyclerOptions<SyllabusModel> options =
                 new FirebaseRecyclerOptions.Builder<SyllabusModel>()
@@ -86,10 +94,10 @@ String streamkey;
                         .build();
 
 
-        syllabusadapter=new FirebaseRecyclerAdapter<SyllabusModel, SyllabusViewHolder>(options) {
+        syllabusadapter = new FirebaseRecyclerAdapter<SyllabusModel, SyllabusViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull SyllabusViewHolder holder, int position, @NonNull SyllabusModel model) {
-                vholder=holder;
+                vholder = holder;
                 Glide.with(getActivity())
                         .load(model.getSubimg())
                         .centerCrop()
@@ -97,23 +105,23 @@ String streamkey;
                         .into(holder.subimg);
 
 
-                  if (new File(folder.getAbsoluteFile(),model.getSubcode()).exists()){
+                if (new File(folder.getAbsoluteFile(), model.getSubcode()).exists()) {
                     holder.imgdown.setImageDrawable(getResources().getDrawable(R.drawable.delete));
-                }else {
+                } else {
                     holder.imgdown.setImageDrawable(getResources().getDrawable(R.drawable.down));
                 }
-            holder.imgdown.setOnClickListener(new View.OnClickListener() {
+                holder.imgdown.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (new File(folder.getAbsoluteFile(),model.getSubcode()).exists()){
+                        if (new File(folder.getAbsoluteFile(), model.getSubcode()).exists()) {
                             new AlertDialog.Builder(getActivity())
                                     .setTitle("Alert!")
                                     .setMessage("Do you want to Delete?")
                                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
-                                            File file=(new File(folder.getAbsoluteFile(),model.getSubcode()));
+                                            File file = (new File(folder.getAbsoluteFile(), model.getSubcode()));
                                             file.delete();
-                                            Toast.makeText(getActivity(),"File Deleted",Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(getActivity(), "File Deleted", Toast.LENGTH_SHORT).show();
                                             holder.imgdown.setImageDrawable(getResources().getDrawable(R.drawable.down));
                                         }
                                     })
@@ -122,9 +130,9 @@ String streamkey;
                                     .show();
 
 
-                        }else{
+                        } else {
                             //showloding();
-                             holder.loadpdf.setVisibility(View.VISIBLE);
+                            holder.loadpdf.setVisibility(View.VISIBLE);
                             downloadNotes(model.getSubpdf(), folder.getAbsolutePath(), model.getSubcode());
 
 
@@ -134,25 +142,25 @@ String streamkey;
                 });
 
 
-                    holder.tvsubname.setText(model.getSubname());
-                    holder.tvsubpm.setText("Pass marks-"+model.getSubpm());
-                    holder.tvsubfm.setText("Full marks-"+model.getSubfm());
-                    holder.tvsubname.setText(model.getSubname());
-                    holder.tvsubcode.setText("Subject code-"+model.getSubcode());
-                    holder.itemView.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                             if (new File(folder.getAbsoluteFile(), model.getSubcode()).exists()) {
+                holder.tvsubname.setText(model.getSubname());
+                holder.tvsubpm.setText("Pass marks-" + model.getSubpm());
+                holder.tvsubfm.setText("Full marks-" + model.getSubfm());
+                holder.tvsubname.setText(model.getSubname());
+                holder.tvsubcode.setText("Subject code-" + model.getSubcode());
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (new File(folder.getAbsoluteFile(), model.getSubcode()).exists()) {
                             Bundle bundle = new Bundle();
                             bundle.putString("file", model.getSubcode());
                             navController.navigate(R.id.pdfViewer, bundle);
-                        }else {
-                                  holder.loadpdf.setVisibility(View.VISIBLE);
-                               downloadNotes(model.getSubpdf(), folder.getAbsolutePath(), model.getSubcode());
-                             }
-
+                        } else {
+                            holder.loadpdf.setVisibility(View.VISIBLE);
+                            downloadNotes(model.getSubpdf(), folder.getAbsolutePath(), model.getSubcode());
                         }
-                    });
+
+                    }
+                });
             }
 
             @NonNull
@@ -166,7 +174,8 @@ String streamkey;
         syllabusrecyclerview.setAdapter(syllabusadapter);
         syllabusadapter.startListening();
     }
-    public void downloadNotes(String url, String dirPath, String fileName ) {
+
+    public void downloadNotes(String url, String dirPath, String fileName) {
         int downloadId = PRDownloader.download(url, dirPath, fileName)
                 .build()
                 .setOnStartOrResumeListener(new OnStartOrResumeListener() {
@@ -196,14 +205,14 @@ String streamkey;
                 .start(new OnDownloadListener() {
                     @Override
                     public void onDownloadComplete() {
-                             Fragment fragment = new SubjectList();
-                            if (SubjectList.this.isVisible()) {
-                                 Bundle bundle = new Bundle();
+                        Fragment fragment = new SubjectList();
+                        if (SubjectList.this.isVisible()) {
+                            Bundle bundle = new Bundle();
                             bundle.putString("file", fileName);
-                                vholder.loadpdf.setVisibility(View.GONE);
-                                vholder.imgdown.setImageDrawable(getResources().getDrawable(R.drawable.delete));
-                               navController.navigate(R.id.action_subjectList_to_pdfViewer,bundle);
-                            } //Toast.makeText(getContext(), "Download complete", Toast.LENGTH_SHORT).show();
+                            vholder.loadpdf.setVisibility(View.GONE);
+                            vholder.imgdown.setImageDrawable(getResources().getDrawable(R.drawable.delete));
+                            navController.navigate(R.id.action_subjectList_to_pdfViewer, bundle);
+                        } //Toast.makeText(getContext(), "Download complete", Toast.LENGTH_SHORT).show();
 
 
                     }

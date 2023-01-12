@@ -13,4 +13,9 @@
         <item name="android:statusBarColor">#03A9F4</item>
         <!-- Customize your theme here. -->
     </style>
+      <style parent="ThemeOverlay.AppCompat.Dialog.Alert" name="TrackSelectionDialogThemeOverlay">
+
+        <item name="windowNoTitle">false</item>
+
+    </style>
 </resources>

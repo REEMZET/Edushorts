@@ -1,8 +1,17 @@
 package com.reemzet.mycollege.Sbte.Fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -10,17 +19,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.os.Handler;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.Toast;
-
 import com.airbnb.lottie.LottieAnimationView;
-import com.airbnb.lottie.LottieComposition;
-import com.airbnb.lottie.LottieOnCompositionLoadedListener;
 import com.facebook.shimmer.ShimmerFrameLayout;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,57 +37,90 @@ import java.util.ArrayList;
 public class Home extends Fragment {
 
     LottieAnimationView learninganim;
-      Handler slideHandler = new Handler();
-    Handler offerslideHandler = new Handler();
+    Handler slideHandler = new Handler();
+
     ViewPager2 viewPager2;
+    private final Runnable sliderRunnable = new Runnable() {
+        @Override
+        public void run() {
+            viewPager2.setCurrentItem(viewPager2.getCurrentItem() + 1);
+        }
+    };
     ShimmerFrameLayout shimmerFrameLayout;
     ArrayList<ViewpagerModel> viewpagerModelArrayList;
     FirebaseDatabase database;
     DatabaseReference slider;
     NavController navController;
-    LinearLayout syllabus;
+    LinearLayout syllabus,lllearning,quesbanklayout;
+    ScrollView scrollView;
+    Toolbar toolbar;
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle toggle;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view=inflater.inflate(R.layout.fragment_home, container, false);
-        learninganim=view.findViewById(R.id.learninganim);
-         viewPager2 = view.findViewById(R.id.sliderviewpager);
-         syllabus=view.findViewById(R.id.syllabus);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        learninganim = view.findViewById(R.id.learninganim);
+        viewPager2 = view.findViewById(R.id.sliderviewpager);
+        syllabus = view.findViewById(R.id.syllabus);
+        scrollView = view.findViewById(R.id.scrollview);
+        lllearning=view.findViewById(R.id.lllearning);
+        quesbanklayout=view.findViewById(R.id.Quebanklayout);
         shimmerFrameLayout = view.findViewById(R.id.shimmer_view_container);
-        database=FirebaseDatabase.getInstance();
-          slider = database.getReference("MyCollege/Sbte/Poster");
+        database = FirebaseDatabase.getInstance();
+        slider = database.getReference("MyCollege/Sbte/Poster");
+        drawerLayout=getActivity().findViewById(R.id.drawer);
 
-
-          NavHostFragment navHostFragment =
+        NavHostFragment navHostFragment =
                 (NavHostFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         assert navHostFragment != null;
         navController = navHostFragment.getNavController();
 
-
-
+        scrollView.fullScroll(View.FOCUS_DOWN);
+        scrollView.setSmoothScrollingEnabled(true);
         slidermethod();
+        Bundle bundle=new Bundle();
+
         syllabus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_home2_to_chooseStream);
+                bundle.putString("menu","syllabus");
+                navController.navigate(R.id.action_home2_to_chooseStream,bundle);
+            }
+        });
+        lllearning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                 bundle.putString("menu","learning");
+                navController.navigate(R.id.action_home2_to_chooseStream,bundle);
+            }
+        });
+        quesbanklayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               bundle.putString("menu","quesbank");
+                navController.navigate(R.id.action_home2_to_chooseStream,bundle);
             }
         });
 
+        checkuserexist();
+        toolbar = getActivity().findViewById(R.id.toolbar);
+        toolbar.setTitle("Home");
+        toolbar.setNavigationIcon(null);
+        toggle = new ActionBarDrawerToggle(getActivity(), drawerLayout, toolbar, R.string.open, R.string.close);
+        toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.white));
 
-
-
-
-
-
-   return view;
-
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+        return view;
 
 
     }
 
-     public void slidermethod() {
+    public void slidermethod() {
 
         viewpagerModelArrayList = new ArrayList<>();
         slider.addValueEventListener(new ValueEventListener() {
@@ -131,10 +165,12 @@ public class Home extends Fragment {
             }
         });
     }
-     private final Runnable sliderRunnable = new Runnable() {
-        @Override
-        public void run() {
-            viewPager2.setCurrentItem(viewPager2.getCurrentItem() + 1);
+
+    public void checkuserexist() {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        if (mAuth.getCurrentUser() == null) {
+            navController.popBackStack();
+            navController.navigate(R.id.signup);
         }
-    };
+    }
 }

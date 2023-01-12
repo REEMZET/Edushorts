@@ -45,7 +45,7 @@
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="100dp"
-                            android:src="@drawable/engineering" />
+                            android:src="@drawable/aku" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -59,7 +59,7 @@
                                 android:fontFamily="@font/archivo_bold"
                                 android:gravity="center"
                                 android:text="ARYABHATTA KNOWLEDGE UNIVERSITY"
-                                android:textColor="@color/white"
+                                android:textColor="@color/black"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
 
@@ -68,6 +68,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="6dp"
                                 android:gravity="center"
+                                android:padding="3dp"
                                 android:text="Syllabus Notes Question Bank Learning Videos Books Pdf Lab Quiz"
                                 android:textColor="@color/white" />
                         </LinearLayout>
@@ -97,7 +98,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
-                app:cardBackgroundColor="@color/purple_200"
+                app:cardBackgroundColor="#00BCD4"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="4dp"
                 app:cardMaxElevation="4dp">
@@ -116,7 +117,7 @@
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="100dp"
-                            android:src="@drawable/university" />
+                            android:src="@drawable/sbte" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -130,7 +131,7 @@
                                 android:fontFamily="@font/archivo_bold"
                                 android:gravity="center"
                                 android:text="STATE BOARD OF TECHNICAL EDUCATION BIHAR"
-                                android:textColor="@color/white"
+                                android:textColor="@color/black"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
 
@@ -139,6 +140,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="6dp"
                                 android:gravity="center"
+                                android:padding="3dp"
                                 android:text="Syllabus Notes Question Bank Learning Videos Books Pdf Lab"
                                 android:textColor="@color/white" />
                         </LinearLayout>
@@ -164,11 +166,11 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardinc"
+                android:id="@+id/cardbseb"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
-                app:cardBackgroundColor="@color/teal_200"
+                app:cardBackgroundColor="#04D9D7"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="4dp"
                 app:cardMaxElevation="4dp">
@@ -187,7 +189,7 @@
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="100dp"
-                            android:src="@drawable/engineering" />
+                            android:src="@drawable/bseb" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -200,8 +202,8 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/archivo_bold"
                                 android:gravity="center"
-                                android:text="STATE BOARD OF TECHNICAL EDUCATION - BIHAR"
-                                android:textColor="@color/white"
+                                android:text="Bihar School Examination Board"
+                                android:textColor="@color/black"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
 
@@ -210,6 +212,79 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="6dp"
                                 android:gravity="center"
+                                android:padding="3dp"
+                                android:text="Syllabus Notes Question Bank Learning Videos Books Pdf Lab"
+                                android:textColor="@color/white" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_gravity="end"
+                        android:layout_weight="1"
+                        android:background="@drawable/callbg"
+                        android:drawableRight="@drawable/right"
+                        android:gravity="center"
+                        android:paddingStart="12dp"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="6dp"
+                        android:paddingBottom="4dp"
+                        android:text="Explore"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardcbse"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#0BCAC9"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                app:cardMaxElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/cbse" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/archivo_bold"
+                                android:gravity="center"
+                                android:text="Bihar School Examination Board"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:gravity="center"
+                                android:padding="3dp"
                                 android:text="Syllabus Notes Question Bank Learning Videos Books Pdf Lab"
                                 android:textColor="@color/white" />
                         </LinearLayout>

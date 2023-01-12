@@ -5,14 +5,14 @@ plugins {
 
 android {
     namespace 'com.reemzet.mycollege'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.reemzet.mycollege"
         minSdk 23
-        targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        targetSdk 33
+        versionCode 35
+        versionName "2.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -62,5 +62,14 @@ dependencies {
     implementation 'com.mindorks.android:prdownloader:0.6.0'
 //pdf
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+//exoplayer
+      implementation 'com.google.android.exoplayer:exoplayer:2.18.2'
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.18.2'
+    implementation 'com.google.android.exoplayer:exoplayer-hls:2.18.2'
+    implementation 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.2'
+    implementation 'com.google.android.exoplayer:exoplayer-rtsp:2.18.2'
+    implementation 'com.google.android.exoplayer:exoplayer-dash:2.18.2'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.18.2'
+
 
 }

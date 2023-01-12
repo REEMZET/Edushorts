@@ -1,33 +1,37 @@
 package com.reemzet.mycollege.UserFargments;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.reemzet.mycollege.R;
 
 
 public class MenuFrag extends Fragment {
 
-    CardView cardaku,cardsbte,cardinc;
+    CardView cardaku, cardsbte, cardbseb,cardcbse;
     NavController navController;
+    Toolbar toolbar;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       View view= inflater.inflate(R.layout.fragment_menu, container, false);
+        View view = inflater.inflate(R.layout.fragment_menu, container, false);
 
-    cardaku=view.findViewById(R.id.cardaku);
-    cardsbte=view.findViewById(R.id.cardsbte);
-    cardinc=view.findViewById(R.id.cardinc);
-
+        cardaku = view.findViewById(R.id.cardaku);
+        cardsbte = view.findViewById(R.id.cardsbte);
+        cardbseb = view.findViewById(R.id.cardbseb);
+        cardcbse=view.findViewById(R.id.cardcbse);
+        toolbar = getActivity().findViewById(R.id.toolbar);
+        toolbar.setTitle("Menu");
 
         NavHostFragment navHostFragment =
                 (NavHostFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
@@ -36,20 +40,33 @@ public class MenuFrag extends Fragment {
         navController = navHostFragment.getNavController();
 
 
-    cardsbte.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            navController.navigate(R.id.action_menuFrag_to_home2);
+        cardsbte.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.navigate(R.id.action_menuFrag_to_home2);
 
-        }
-    });
+            }
+        });
+        cardaku.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                 navController.navigate(R.id.comingSoon);
+            }
+        });
+        cardbseb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.navigate(R.id.comingSoon);
+            }
+        });
+        cardcbse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.navigate(R.id.comingSoon);
+            }
+        });
 
-
-
-
-
-
-
-    return view;
+        return view;
     }
+
 }

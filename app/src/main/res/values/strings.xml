@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyCollege</string>
+    <string name="app_name">EduShorts</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
@@ -8,6 +8,10 @@
     <string name="close">close</string>
     <string name="resendotp"><font color="#0379AE">otp not received?</font> <font color="#FF035E">resend</font></string>
     <string name="invite">इस ऐप में शामिल होने के लिए अपने दोस्तों को आमंत्रित करें</string>
+    <string name="track_selection_title">Video Quality</string>
+    <string name="exo_track_selection_title_video">Video</string>
+    <string name="exo_track_selection_title_audio">Audio</string>
+    <string name="exo_track_selection_title_text">text</string>
     <string-array name="semester">
         <item>Semester-1</item>
         <item>Semester-2</item>
@@ -16,7 +20,7 @@
         <item>Semester-5</item>
         <item>Semester-6</item>
     </string-array>
-     <string-array name="array_bihar_districts">
+    <string-array name="array_bihar_districts">
         <item>Select Your District</item>
         <item>Araria</item>
         <item>Arwal</item>
@@ -60,53 +64,56 @@
 
     <string-array name="colleges">
         <item>Govt.Polytechnic,Barauni</item>
-         <item>Govt.Polytechnic,Bhagalpur</item>
-         <item>Govt. Polytechnic,Chapra</item>
-         <item>Govt. Polytechnic,Darbhanga</item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
+        <item>Govt.Polytechnic,Bhagalpur</item>
+        <item>Govt. Polytechnic,Chapra</item>
+        <item>Govt. Polytechnic,Darbhanga</item>
         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
         <item></item>
 
-         <item></item>
-         <item></item>
         <item></item>
         <item></item>
         <item></item>
         <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+
+    </string-array>
+    <string-array name="branch">
+
+        <item>Civil Engineering</item>
+        <item>Computer Science Engineering</item>
+        <item>Mechnical Engineering</item>
+        <item>ELectrical Engineering</item>
+        <item>ELectronics Engineering</item>
+
     </string-array>
 </resources>

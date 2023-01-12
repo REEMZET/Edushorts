@@ -36,8 +36,10 @@
     </LinearLayout>
 
     <ScrollView
+        android:id="@+id/scrollview"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -173,7 +175,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/classxixiilayout"
+                        android:id="@+id/lllearning"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="2dp"
@@ -202,7 +204,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/englayout"
+                        android:id="@+id/Quebanklayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="2dp"
@@ -248,13 +250,10 @@
                         android:gravity="center"
                         android:orientation="vertical">
 
-                        <com.airbnb.lottie.LottieAnimationView
+                        <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="90dp"
-                            app:lottie_autoPlay="true"
-                            app:lottie_loop="true"
-                             app:lottie_speed="0.4"
-                            app:lottie_url="https://assets1.lottiefiles.com/packages/lf20_anlbpxrk.json" />
+                            android:src="@drawable/book"/>
 
                         <TextView
 
@@ -277,13 +276,12 @@
                         android:gravity="center"
                         android:orientation="vertical">
 
-                        <com.airbnb.lottie.LottieAnimationView
+                        <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="90dp"
-                            android:scaleType="centerInside"
-                            app:lottie_autoPlay="true"
-                            app:lottie_loop="true"
-                            app:lottie_url="https://assets7.lottiefiles.com/packages/lf20_rz9cfzzt.json" />
+                            android:src="@drawable/lab"
+                            android:padding="8dp"
+                            android:scaleType="centerInside" />
 
                         <TextView
 
@@ -344,21 +342,19 @@
                         android:gravity="center"
                         android:orientation="vertical">
 
-                        <com.airbnb.lottie.LottieAnimationView
+                        <ImageView
 
                             android:layout_width="match_parent"
                             android:layout_height="90dp"
-                            app:lottie_autoPlay="true"
-                            app:lottie_speed="0.2"
-                            app:lottie_loop="true"
-                            app:lottie_url="https://assets4.lottiefiles.com/packages/lf20_bTOdru.json" />
+                            android:padding="8dp"
+                            android:src="@drawable/quiz"/>
 
                         <TextView
 
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Notice"
+                            android:text="Quiz"
                             android:textColor="@color/textcolor"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -374,14 +370,12 @@
                         android:gravity="center"
                         android:orientation="vertical">
 
-                        <com.airbnb.lottie.LottieAnimationView
+                        <ImageView
 
                             android:layout_width="match_parent"
                             android:layout_height="90dp"
-                            app:lottie_autoPlay="true"
-
-                            app:lottie_loop="true"
-                            app:lottie_url="https://assets4.lottiefiles.com/private_files/lf30_pkxipgnh.json" />
+                            android:src="@drawable/college"
+                            />
 
                         <TextView
 
@@ -404,13 +398,11 @@
                         android:gravity="center"
                         android:orientation="vertical">
 
-                        <com.airbnb.lottie.LottieAnimationView
+                        <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="90dp"
-                            app:lottie_autoPlay="true"
-                            app:lottie_loop="true"
-                            app:lottie_speed="0.2"
-                            app:lottie_url="https://assets9.lottiefiles.com/packages/lf20_18N5Dm.json" />
+                            android:padding="10dp"
+                            android:src="@drawable/university"/>
 
                         <TextView
                             android:id="@+id/textView"

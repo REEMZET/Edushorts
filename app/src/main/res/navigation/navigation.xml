@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation.xml"
-    app:startDestination="@id/userreg">
+    app:startDestination="@id/splashScreen">
   <fragment
         android:id="@+id/signup"
         android:name="com.reemzet.mycollege.UserFargments.Signup"
@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_menuFrag_to_home2"
             app:destination="@id/home2" />
+        <action
+            android:id="@+id/action_menuFrag_to_comingSoon"
+            app:destination="@id/comingSoon" />
     </fragment>
     <fragment
         android:id="@+id/home2"
@@ -49,6 +52,9 @@
         <action
             android:id="@+id/action_home2_to_chooseStream"
             app:destination="@id/chooseStream" />
+        <action
+            android:id="@+id/action_home2_to_comingSoon"
+            app:destination="@id/comingSoon" />
     </fragment>
     <fragment
         android:id="@+id/chooseStream"
@@ -58,6 +64,12 @@
         <action
             android:id="@+id/action_chooseStream_to_subjectList"
             app:destination="@id/subjectList" />
+        <action
+            android:id="@+id/action_chooseStream_to_learning"
+            app:destination="@id/learning" />
+        <action
+            android:id="@+id/action_chooseStream_to_quesbankyear"
+            app:destination="@id/quesbankyear" />
     </fragment>
     <fragment
         android:id="@+id/subjectList"
@@ -73,4 +85,67 @@
         android:name="com.reemzet.mycollege.Sbte.Fragments.PdfViewer"
         android:label="fragment_pdf_viewer"
         tools:layout="@layout/fragment_pdf_viewer" />
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="com.reemzet.mycollege.UserFargments.SplashScreen"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreen_to_signup"
+            app:destination="@id/signup" />
+    </fragment>
+    <fragment
+        android:id="@+id/learning"
+        android:name="com.reemzet.mycollege.Sbte.Fragments.Learning"
+        android:label="fragment_learning"
+        tools:layout="@layout/fragment_learning" >
+        <action
+            android:id="@+id/action_learning_to_folders"
+            app:destination="@id/folders" />
+        <action
+            android:id="@+id/action_learning_to_comingSoon"
+            app:destination="@id/comingSoon" />
+    </fragment>
+    <fragment
+        android:id="@+id/folders"
+        android:name="com.reemzet.mycollege.Sbte.Fragments.Folders"
+        android:label="fragment_folders"
+        tools:layout="@layout/fragment_folders" >
+        <action
+            android:id="@+id/action_folders_to_videosListFrag"
+            app:destination="@id/videosListFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/videosListFrag"
+        android:name="com.reemzet.mycollege.Sbte.Fragments.VideosListFrag"
+        android:label="fragment_videos_list"
+        tools:layout="@layout/fragment_videos_list" >
+        <action
+            android:id="@+id/action_videosListFrag_to_player"
+            app:destination="@id/player" />
+    </fragment>
+    <fragment
+        android:id="@+id/player"
+        android:name="com.reemzet.mycollege.Sbte.Fragments.Player"
+        android:label="fragment_player"
+        tools:layout="@layout/fragment_player" />
+    <fragment
+        android:id="@+id/comingSoon"
+        android:name="com.reemzet.mycollege.Sbte.Fragments.ComingSoon"
+        android:label="fragment_coming_soon"
+        tools:layout="@layout/fragment_coming_soon" />
+    <fragment
+        android:id="@+id/quesbankyear"
+        android:name="com.reemzet.mycollege.Sbte.Fragments.Quesbankyear"
+        android:label="fragment_quesbankyear"
+        tools:layout="@layout/fragment_quesbankyear" >
+        <action
+            android:id="@+id/action_quesbankyear_to_questionlistFrag"
+            app:destination="@id/questionlistFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionlistFrag"
+        android:name="com.reemzet.mycollege.Sbte.Models.QuestionlistFrag"
+        android:label="fragment_questionlist"
+        tools:layout="@layout/fragment_questionlist" />
 </navigation>

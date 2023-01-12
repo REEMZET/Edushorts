@@ -10,7 +10,7 @@
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animationView2"
         android:layout_width="match_parent"
-        android:layout_height="270dp"
+        android:layout_height="250dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -35,7 +35,7 @@
             <LinearLayout
                 android:id="@+id/linearLayout6"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="250dp"
                 android:background="#9500BCD4"
                 android:orientation="vertical">
 
@@ -92,7 +92,7 @@
                             android:id="@+id/etname"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
+                            android:layout_margin="4dp"
                             android:background="@drawable/bg_gray"
                             android:ems="10"
                             android:hint="Name"
@@ -115,7 +115,7 @@
                             android:id="@+id/autocity"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
+                            android:layout_margin="4dp"
                             android:background="@drawable/bg_gray"
                             android:ems="10"
                             android:hint="City"
@@ -135,15 +135,15 @@
                             android:textStyle="bold" />
 
                         <AutoCompleteTextView
-                            android:id="@+id/etpincode"
+                            android:id="@+id/autocollegs"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
+                            android:layout_margin="4dp"
                             android:background="@drawable/bg_gray"
                             android:ems="10"
-                            android:hint="Pincode"
-                            android:inputType="number"
-                            android:maxLength="6"
+                            android:hint="Govt College bihar"
+                            android:inputType="text|textCapSentences"
+                            android:maxLength="40"
                             android:minHeight="48dp"
                             android:paddingStart="8dp"
                             android:textColor="#3F51B5"
@@ -158,15 +158,42 @@
                             android:textStyle="bold" />
 
                         <AutoCompleteTextView
-                            android:id="@+id/etaddress"
+                            android:id="@+id/autobranch"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
                             android:layout_marginStart="8dp"
                             android:layout_marginTop="8dp"
-                            android:layout_marginBottom="30dp"
+                            android:layout_marginBottom="10dp"
                             android:background="@drawable/bg_gray"
                             android:ems="10"
-                            android:hint="Address"
+                            android:hint="Branch"
+                            android:inputType="textCapSentences"
+                            android:maxLength="60"
+                            android:minHeight="48dp"
+                            android:paddingStart="10dp"
+                            android:textColor="#3F51B5"
+                            android:textColorHint="#919191"
+                            android:textSize="12sp" />
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Semester/class"
+                            android:textColor="#222222"
+                            android:textStyle="bold" />
+
+                        <AutoCompleteTextView
+                            android:id="@+id/autosem"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/bg_gray"
+                            android:ems="10"
+                            android:hint="sem-1,xi,xii"
                             android:inputType="textCapSentences"
                             android:maxLength="60"
                             android:minHeight="48dp"
@@ -182,9 +209,8 @@
             <TextView
                 android:id="@+id/submit"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="-15dp"
                 android:background="@drawable/submitbtnbg"
                 android:gravity="center"
                 android:paddingStart="20dp"

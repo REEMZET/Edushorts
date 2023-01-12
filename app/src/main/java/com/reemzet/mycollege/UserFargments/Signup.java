@@ -2,18 +2,18 @@ package com.reemzet.mycollege.UserFargments;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.fragment.NavHostFragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,11 +32,13 @@ public class Signup extends Fragment {
     NavController navController;
     PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     ProgressDialog progressDialog;
+    Toolbar toolbar;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_signup, container, false);
+        View view = inflater.inflate(R.layout.fragment_signup, container, false);
         btnsubmit = view.findViewById(R.id.btnsubmit);
         etphone = view.findViewById(R.id.etphone);
         mAuth = FirebaseAuth.getInstance();
@@ -63,15 +65,14 @@ public class Signup extends Fragment {
             }
         });
 
+        toolbar = getActivity().findViewById(R.id.toolbar);
+        toolbar.setTitle("Signup");
 
 
-
-
-
-    return  view;
+        return view;
     }
 
-     public void otpsent(String phone) {
+    public void otpsent(String phone) {
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
             @Override
@@ -109,6 +110,7 @@ public class Signup extends Fragment {
                         .build();
         PhoneAuthProvider.verifyPhoneNumber(options);
     }
+
     public void showloding() {
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.show();
