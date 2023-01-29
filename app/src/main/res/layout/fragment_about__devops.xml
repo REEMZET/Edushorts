@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout21"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/profilebg"
+    tools:context=".UserFargments.about_Devops">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="vertical"></LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="-80dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="30dp"
+                app:cardBackgroundColor="#84FCF9F9"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:cardMaxElevation="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/loginuserpic2"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:padding="8dp"
+                        android:src="@drawable/ravi" />
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/aleo"
+                        android:gravity="center"
+                        android:text="Ravi Ranjan kumar"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/adamina"
+                        android:gravity="center"
+                        android:text="Android Developer"
+                        android:textColor="#E91E63"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/textView18"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/aleo"
+                        android:gravity="center"
+                        android:text="Diploma in Electronics Engineering\n(Govt.Polytechnic Sitamarhi )\nB.tech Computer Science Engineering (Pursing)"
+                        android:textColor="#020E4E"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/textView21"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:autoLink="email"
+                        android:gravity="center"
+                        android:text="Gmail:-raj680197@gmail.com"
+                        android:textColor="#001CB5"
+                        android:textColorLink="#2E48D4" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imageView6"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_margin="6dp"
+                            android:src="@drawable/gmail" />
+
+                        <ImageView
+                            android:id="@+id/imageView11"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_margin="6dp"
+                            android:src="@drawable/fb" />
+
+                        <ImageView
+                            android:id="@+id/imageView12"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_margin="6dp"
+                            android:src="@drawable/instagram" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

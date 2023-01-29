@@ -117,7 +117,7 @@ public class UserRegistration extends Fragment {
                     Settings.Secure.ANDROID_ID);
             Date d = new Date();
             CharSequence s = DateFormat.format("MMMM d, yyyy ", d.getTime());
-            UserModels userModels = new UserModels(name, city, college, sem, branch, mAuth.getUid(), "pic.jpg", deviceid, "normal", mAuth.getCurrentUser().getPhoneNumber(), (String) s);
+            UserModels userModels = new UserModels(name, city, college, sem, branch, mAuth.getUid(), "pic.jpg", deviceid, "normal", mAuth.getCurrentUser().getPhoneNumber(), (String) s, mAuth.getUid().substring(0,2)+mAuth.getUid().substring(6,10),"null","0","0");
             useref.child(mAuth.getUid()).setValue(userModels).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void unused) {

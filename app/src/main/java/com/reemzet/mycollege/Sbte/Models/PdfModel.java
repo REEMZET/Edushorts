@@ -1,12 +1,12 @@
 package com.reemzet.mycollege.Sbte.Models;
 
-public class QuestionModel {
+public class PdfModel {
     String pdfname,pdfurl;
 
-    public QuestionModel() {
+    public PdfModel() {
     }
 
-    public QuestionModel(String pdfname, String pdfurl) {
+    public PdfModel(String pdfname, String pdfurl) {
         this.pdfname = pdfname;
         this.pdfurl = pdfurl;
     }

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/margin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:elevation="8dp"
+    android:padding="4dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="2dp"
+        android:padding="4dp">
+
+
+        <ImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="70dp"
+            android:layout_height="85dp"
+            android:layout_marginStart="4dp"
+            android:background="@drawable/catbg"
+            android:src="@drawable/pdf" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvpdfname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:fontFamily="@font/brawler"
+                android:text="Lec-1"
+                android:textColor="@color/textcolor"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvitemdesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="Pdf Desc"
+                android:textColor="#4A4848"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvitemprice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="3dp"
+                android:text="Rs.15"
+                android:textColor="#FB1C1C"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imgdownload"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical" />
+
+    </LinearLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loadlottie"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:visibility="gone"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="load.json"
+        app:lottie_loop="true"
+        app:lottie_speed="0.4" />
+
+
+</androidx.cardview.widget.CardView>

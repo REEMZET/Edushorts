@@ -1,14 +1,19 @@
 package com.reemzet.mycollege.Sbte.Fragments;
 
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
@@ -27,20 +32,25 @@ import com.downloader.PRDownloader;
 import com.downloader.Progress;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.reemzet.mycollege.R;
 import com.reemzet.mycollege.Sbte.Models.SyllabusModel;
 import com.reemzet.mycollege.Sbte.ViewHolders.SyllabusViewHolder;
 
 import java.io.File;
+import java.util.ArrayList;
 
 
 public class SubjectList extends Fragment {
 
     FirebaseDatabase database;
-    DatabaseReference syllabusref;
+    DatabaseReference syllabusref,civil,ec1sem,cs2sem,eesem2,me2sem;
     RecyclerView syllabusrecyclerview;
     Query query;
     File folder;
@@ -49,6 +59,7 @@ public class SubjectList extends Fragment {
     SyllabusViewHolder vholder;
     String streamkey;
     Toolbar toolbar;
+  SyllabusModel syllabusModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,17 +67,24 @@ public class SubjectList extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_subject_list, container, false);
         syllabusrecyclerview = view.findViewById(R.id.syllabusrecyclerview);
+
         streamkey = getArguments().getString("streamkey");
 
         syllabusrecyclerview.setLayoutManager(new GridLayoutManager(getContext(), 2));
         database = FirebaseDatabase.getInstance();
         syllabusref = database.getReference("MyCollege/Sbte/syllabus/").child(streamkey);
+        civil=database.getReference("MyCollege/Sbte/syllabus/Semester-1Civil Engineering");
+        ec1sem=database.getReference("MyCollege/Sbte/syllabus/Semester-1Electronics Engineering");
+        cs2sem=database.getReference("MyCollege/Sbte/syllabus/Semester-2Computer Science Engineering");
+        eesem2=database.getReference("MyCollege/Sbte/syllabus/Semester-2Electrical Engineering");
+        me2sem=database.getReference("MyCollege/Sbte/syllabus/Semester-2Mechnical Engineering");
         PRDownloader.initialize(getActivity());
         folder = getContext().getFilesDir();
         loadsyllabus();
 
-        SyllabusModel syllabusModel = new SyllabusModel("M75746", "Basic Civil", "fsd", "70", "28", "https://decapoda.nhm.org/pdfs/25900/25900-001.pdf");
-        //syllabusref.push().setValue(syllabusModel);
+
+
+
 
         NavHostFragment navHostFragment =
                 (NavHostFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
@@ -82,6 +100,9 @@ public class SubjectList extends Fragment {
                 navController.popBackStack();
             }
         });
+
+
+
 
         return view;
     }

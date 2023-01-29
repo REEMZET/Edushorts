@@ -41,7 +41,7 @@
                 android:id="@+id/tvyear"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/cherry_swash"
+                android:fontFamily="@font/brawler"
                 android:gravity="center"
                 android:text="Sbte Exam 2022 Odd"
                 android:textColor="#050505"

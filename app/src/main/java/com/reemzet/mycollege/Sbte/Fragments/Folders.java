@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -34,7 +36,7 @@ public class Folders extends Fragment {
     String streamkey,foldertype;
     DatabaseReference folderref;
     ShimmerFrameLayout shimmerFrameLayout;
-
+    ImageView courseimage;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -43,6 +45,8 @@ public class Folders extends Fragment {
 
         shimmerFrameLayout = view.findViewById(R.id.shimmer_view_container);
         recyclerView = view.findViewById(R.id.folderrecyclerview);
+        courseimage=view.findViewById(R.id.courseimage);
+
         streamkey=getArguments().getString("streamkey");
         foldertype=getArguments().getString("foldertype");
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -58,12 +62,17 @@ public class Folders extends Fragment {
             folderref.addChildEventListener(new ChildEventListener() {
                 @Override
                 public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                    list.add(new SubjectFolderModels(snapshot.getKey(), snapshot.getChildrenCount() + " Videos lecture"));
-                    adapter = new SubjectfolderAdapter(list, getContext(),streamkey+"/"+foldertype);
-                    recyclerView.setAdapter(adapter);
-                    shimmerFrameLayout.stopShimmer();
-                    shimmerFrameLayout.setVisibility(View.GONE);
-                    recyclerView.setVisibility(View.VISIBLE);
+                    if (snapshot.getKey().equals("imageurl")){
+                        Glide.with(getContext()).load(snapshot.getValue(String.class))
+                                .into(courseimage);
+                    }else {
+                        list.add(new SubjectFolderModels(snapshot.getKey(), snapshot.getChildrenCount() + " items contain"));
+                        adapter = new SubjectfolderAdapter(list, getContext(),streamkey,foldertype);
+                        recyclerView.setAdapter(adapter);
+                        shimmerFrameLayout.stopShimmer();
+                        shimmerFrameLayout.setVisibility(View.GONE);
+                        recyclerView.setVisibility(View.VISIBLE);
+                    }
                 }
 
                 @Override

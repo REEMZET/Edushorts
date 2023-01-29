@@ -8,6 +8,14 @@
     android:background="@color/white"
     tools:context=".Sbte.Fragments.Home">
 
+    <ImageView
+        android:id="@+id/imageshare"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/refer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="0dp"
@@ -241,7 +249,7 @@
                     android:padding="2dp">
 
                     <LinearLayout
-                        android:id="@+id/generallayout"
+                        android:id="@+id/librarylayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="2dp"
@@ -260,14 +268,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Books"
+                            android:text="Library"
                             android:textColor="@color/textcolor"
                             android:textSize="14sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/layoutnovel"
+                        android:id="@+id/layoutlab"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="2dp"
@@ -295,7 +303,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/quebanklayout"
+                        android:id="@+id/routinelayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="2dp"
@@ -333,7 +341,7 @@
                     android:padding="2dp">
 
                     <LinearLayout
-                        android:id="@+id/stationarylayout"
+                        android:id="@+id/quizhomelayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="2dp"
@@ -361,7 +369,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/practicesetlayout"
+                        android:id="@+id/collegelayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="2dp"
@@ -389,7 +397,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/paperslayout"
+                        android:id="@+id/boardinfolayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="2dp"
@@ -512,6 +520,7 @@
 
                         <LinearLayout
 
+                            android:id="@+id/devchatlayout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="2dp"
@@ -524,9 +533,9 @@
 
                                 android:layout_width="match_parent"
                                 android:layout_height="100dp"
-                                android:src="@drawable/chat"
                                 android:padding="10dp"
-                                android:scaleType="centerInside" />
+                                android:scaleType="centerInside"
+                                android:src="@drawable/chat" />
 
                             <TextView
 
@@ -542,6 +551,7 @@
 
                         <LinearLayout
 
+                            android:id="@+id/linearchat"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="2dp"
@@ -554,9 +564,9 @@
 
                                 android:layout_width="match_parent"
                                 android:layout_height="100dp"
-                                android:src="@drawable/groupchat"
+                                android:padding="10dp"
                                 android:scaleType="centerInside"
-                                android:padding="10dp"/>
+                                android:src="@drawable/groupchat" />
 
                             <TextView
 
@@ -572,6 +582,7 @@
 
                         <LinearLayout
 
+                            android:id="@+id/profilelayout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="2dp"
@@ -585,8 +596,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="100dp"
                                 android:padding="10dp"
-                                android:src="@drawable/profile"
-                                android:scaleType="centerInside" />
+                                android:scaleType="centerInside"
+                                android:src="@drawable/profile" />
 
                             <TextView
 

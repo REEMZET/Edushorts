@@ -40,7 +40,7 @@
                 android:id="@+id/foldernametv"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/cherry_swash"
+                android:fontFamily="@font/adamina"
                 android:gravity="center"
                 android:text="Folder Name"
                 android:textColor="#050505"

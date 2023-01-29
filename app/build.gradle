@@ -1,6 +1,6 @@
 plugins {
     id 'com.android.application'
-    id 'com.google.gms.google-services'
+id 'com.google.gms.google-services'
 }
 
 android {
@@ -11,8 +11,8 @@ android {
         applicationId "com.reemzet.mycollege"
         minSdk 23
         targetSdk 33
-        versionCode 35
-        versionName "2.2"
+        versionCode 38
+        versionName "2.4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -30,12 +30,13 @@ android {
 }
 
 dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.navigation:navigation-fragment:2.5.3'
-        implementation 'androidx.navigation:navigation-ui:2.5.3'
+    implementation 'androidx.navigation:navigation-ui:2.5.3'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
@@ -54,22 +55,27 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:23.1.1'
     implementation platform('com.google.firebase:firebase-bom:31.1.1')
     implementation 'com.google.firebase:firebase-analytics'
-      implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-auth'
 
     def lottieVersion = "3.4.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
      //prdownloader
     implementation 'com.mindorks.android:prdownloader:0.6.0'
-//pdf
+    //pdf
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+    //exoplayer
 //exoplayer
-      implementation 'com.google.android.exoplayer:exoplayer:2.18.2'
-    implementation 'com.google.android.exoplayer:exoplayer-core:2.18.2'
-    implementation 'com.google.android.exoplayer:exoplayer-hls:2.18.2'
-    implementation 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.2'
-    implementation 'com.google.android.exoplayer:exoplayer-rtsp:2.18.2'
-    implementation 'com.google.android.exoplayer:exoplayer-dash:2.18.2'
-    implementation 'com.google.android.exoplayer:exoplayer-ui:2.18.2'
+    implementation 'com.google.android.exoplayer:exoplayer:2.17.1'
 
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.17.1'
+    implementation 'com.google.android.exoplayer:exoplayer-hls:2.17.1'
+    implementation 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.17.1'
+    implementation 'com.google.android.exoplayer:exoplayer-rtsp:2.17.1'
 
+    implementation 'com.google.android.exoplayer:exoplayer-dash:2.17.1'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.17.1'
+
+ implementation 'com.google.android.play:core:1.10.3'
+ implementation 'org.jsoup:jsoup:1.15.3'
+    implementation 'com.orhanobut:dialogplus:1.11@aar'
 }

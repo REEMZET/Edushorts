@@ -43,6 +43,12 @@
         <action
             android:id="@+id/action_menuFrag_to_comingSoon"
             app:destination="@id/comingSoon" />
+        <action
+            android:id="@+id/action_menuFrag_to_about_Devops"
+            app:destination="@id/about_Devops" />
+        <action
+            android:id="@+id/action_menuFrag_to_webViewPage"
+            app:destination="@id/webViewPage" />
     </fragment>
     <fragment
         android:id="@+id/home2"
@@ -55,6 +61,21 @@
         <action
             android:id="@+id/action_home2_to_comingSoon"
             app:destination="@id/comingSoon" />
+        <action
+            android:id="@+id/action_home2_to_wallet"
+            app:destination="@id/wallet" />
+        <action
+            android:id="@+id/action_home2_to_groupChat"
+            app:destination="@id/groupChat" />
+        <action
+            android:id="@+id/action_home2_to_myPurchase"
+            app:destination="@id/myPurchase" />
+        <action
+            android:id="@+id/action_home2_to_user_Profile"
+            app:destination="@id/user_Profile" />
+        <action
+            android:id="@+id/action_home2_to_simplePlayer"
+            app:destination="@id/simplePlayer" />
     </fragment>
     <fragment
         android:id="@+id/chooseStream"
@@ -70,6 +91,12 @@
         <action
             android:id="@+id/action_chooseStream_to_quesbankyear"
             app:destination="@id/quesbankyear" />
+        <action
+            android:id="@+id/action_chooseStream_to_libraryList"
+            app:destination="@id/libraryList" />
+        <action
+            android:id="@+id/action_chooseStream_to_labPracticalList"
+            app:destination="@id/labPracticalList" />
     </fragment>
     <fragment
         android:id="@+id/subjectList"
@@ -79,6 +106,9 @@
         <action
             android:id="@+id/action_subjectList_to_pdfViewer"
             app:destination="@id/pdfViewer" />
+        <action
+            android:id="@+id/action_subjectList_to_preViewPdfViewer"
+            app:destination="@id/preViewPdfViewer" />
     </fragment>
     <fragment
         android:id="@+id/pdfViewer"
@@ -112,8 +142,11 @@
         android:label="fragment_folders"
         tools:layout="@layout/fragment_folders" >
         <action
-            android:id="@+id/action_folders_to_videosListFrag"
-            app:destination="@id/videosListFrag" />
+            android:id="@+id/action_folders_to_notesList"
+            app:destination="@id/notesList" />
+        <action
+            android:id="@+id/action_folders_to_subfolder"
+            app:destination="@id/subfolder" />
     </fragment>
     <fragment
         android:id="@+id/videosListFrag"
@@ -145,7 +178,107 @@
     </fragment>
     <fragment
         android:id="@+id/questionlistFrag"
-        android:name="com.reemzet.mycollege.Sbte.Models.QuestionlistFrag"
+        android:name="com.reemzet.mycollege.Sbte.Fragments.QuestionlistFrag"
         android:label="fragment_questionlist"
-        tools:layout="@layout/fragment_questionlist" />
+        tools:layout="@layout/fragment_questionlist" >
+        <action
+            android:id="@+id/action_questionlistFrag_to_pdfViewer"
+            app:destination="@id/pdfViewer" />
+        <action
+            android:id="@+id/action_questionlistFrag_to_preViewPdfViewer"
+            app:destination="@id/preViewPdfViewer" />
+    </fragment>
+    <fragment
+        android:id="@+id/libraryList"
+        android:name="com.reemzet.mycollege.Sbte.Fragments.LibraryList"
+        android:label="fragment_library_list"
+        tools:layout="@layout/fragment_library_list" >
+        <action
+            android:id="@+id/action_libraryList_to_pdfViewer"
+            app:destination="@id/pdfViewer" />
+        <action
+            android:id="@+id/action_libraryList_to_preViewPdfViewer"
+            app:destination="@id/preViewPdfViewer" />
+    </fragment>
+    <fragment
+        android:id="@+id/labPracticalList"
+        android:name="com.reemzet.mycollege.Sbte.Fragments.LabPracticalList"
+        android:label="fragment_lab_practical_list"
+        tools:layout="@layout/fragment_lab_practical_list" >
+        <action
+            android:id="@+id/action_labPracticalList_to_pdfViewer"
+            app:destination="@id/pdfViewer" />
+        <action
+            android:id="@+id/action_labPracticalList_to_preViewPdfViewer"
+            app:destination="@id/preViewPdfViewer" />
+    </fragment>
+    <fragment
+        android:id="@+id/wallet"
+        android:name="com.reemzet.mycollege.UserFargments.Wallet"
+        android:label="fragment_wallet"
+        tools:layout="@layout/fragment_wallet" >
+        <action
+            android:id="@+id/action_wallet_to_transcationFragment"
+            app:destination="@id/transcationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transcationFragment"
+        android:name="com.reemzet.mycollege.UserFargments.TranscationFragment"
+        android:label="fragment_transcation"
+        tools:layout="@layout/fragment_transcation" />
+    <fragment
+        android:id="@+id/groupChat"
+        android:name="com.reemzet.mycollege.Sbte.Fragments.GroupChat"
+        android:label="fragment_group_chat"
+        tools:layout="@layout/fragment_group_chat" />
+    <fragment
+        android:id="@+id/notesList"
+        android:name="com.reemzet.mycollege.Sbte.Fragments.NotesList"
+        android:label="fragment_notes_list"
+        tools:layout="@layout/fragment_notes_list" >
+        <action
+            android:id="@+id/action_notesList_to_pdfViewer"
+            app:destination="@id/pdfViewer" />
+        <action
+            android:id="@+id/action_notesList_to_preViewPdfViewer"
+            app:destination="@id/preViewPdfViewer" />
+    </fragment>
+    <fragment
+        android:id="@+id/myPurchase"
+        android:name="com.reemzet.mycollege.UserFargments.MyPurchase"
+        android:label="fragment_my_purchase"
+        tools:layout="@layout/fragment_my_purchase" />
+    <fragment
+        android:id="@+id/user_Profile"
+        android:name="com.reemzet.mycollege.UserFargments.User_Profile"
+        android:label="fragment_user__profile"
+        tools:layout="@layout/fragment_user__profile" />
+    <fragment
+        android:id="@+id/about_Devops"
+        android:name="com.reemzet.mycollege.UserFargments.about_Devops"
+        android:label="fragment_about__devops"
+        tools:layout="@layout/fragment_about__devops" />
+    <fragment
+        android:id="@+id/webViewPage"
+        android:name="com.reemzet.mycollege.UserFargments.WebViewPage"
+        android:label="WebViewPage" />
+    <fragment
+        android:id="@+id/preViewPdfViewer"
+        android:name="com.reemzet.mycollege.Sbte.Fragments.PreViewPdfViewer"
+        android:label="fragment_pre_view_pdf_viewer"
+        tools:layout="@layout/fragment_pre_view_pdf_viewer" />
+    <fragment
+        android:id="@+id/simplePlayer"
+        android:name="com.reemzet.mycollege.UserFargments.SimplePlayer"
+        android:label="fragment_simple_player"
+        tools:layout="@layout/fragment_simple_player" />
+    <fragment
+        android:id="@+id/subfolder"
+        android:name="com.reemzet.mycollege.Sbte.Fragments.Subfolder"
+        android:label="fragment_subfolder"
+        tools:layout="@layout/fragment_subfolder" >
+        <action
+            android:id="@+id/action_subfolder_to_videosListFrag"
+            app:destination="@id/videosListFrag" />
+    </fragment>
 </navigation>

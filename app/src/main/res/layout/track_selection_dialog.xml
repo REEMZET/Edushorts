@@ -8,6 +8,7 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/track_selection_dialog_view_pager"
         android:layout_width="match_parent"
+        android:background="@color/white"
         android:layout_height="200dp"
        >
 
@@ -15,8 +16,10 @@
             android:id="@+id/track_selection_dialog_tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#D3D1D1"
             app:tabGravity="fill"
-            app:tabMode="fixed" />
+            app:tabMode="fixed"
+            app:tabTextColor="@color/black" />
 
     </androidx.viewpager.widget.ViewPager>
 

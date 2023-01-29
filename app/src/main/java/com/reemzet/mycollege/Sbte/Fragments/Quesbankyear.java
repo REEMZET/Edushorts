@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -21,7 +22,6 @@ import com.google.firebase.database.annotations.Nullable;
 import com.reemzet.mycollege.R;
 import com.reemzet.mycollege.Sbte.Adapters.QuesBankYearAdapter;
 import com.reemzet.mycollege.Sbte.Models.QuesBankYearModel;
-import com.reemzet.mycollege.Sbte.Models.QuestionModel;
 
 import java.util.ArrayList;
 
@@ -35,6 +35,7 @@ public class Quesbankyear extends Fragment {
     String streamkey;
     NavController navController;
     ShimmerFrameLayout shimmerFrameLayout;
+    Toolbar toolbar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,7 +57,7 @@ public class Quesbankyear extends Fragment {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 list.add(new QuesBankYearModel(snapshot.getKey(), snapshot.getChildrenCount() + " item contain"));
-                adapter = new QuesBankYearAdapter(list, getContext(), String.valueOf(quesyearref), navController);
+                adapter = new QuesBankYearAdapter(list, getContext(), streamkey+"/", navController);
                 recyclerView.setAdapter(adapter);
                 shimmerFrameLayout.stopShimmer();
                 shimmerFrameLayout.setVisibility(View.GONE);
@@ -83,8 +84,15 @@ public class Quesbankyear extends Fragment {
 
             }
         });
-        QuestionModel model=new QuestionModel("MicroWave","https://www.sbteonline.com/papers/common-1-year-applied-science-chemistry-n2016-may-2019.pdf");
-       // quesyearref.child("Sbte Exam 2020 Even").push().setValue(model);
+        toolbar = getActivity().findViewById(R.id.toolbar);
+        toolbar.setTitle(streamkey);
+        toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.popBackStack();
+            }
+        });
 
         return view;
     }

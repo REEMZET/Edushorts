@@ -21,6 +21,8 @@ import android.widget.LinearLayout;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -50,7 +52,7 @@ public class Learning extends Fragment {
     Handler slideHandler = new Handler();
     String streamkey;
     Toolbar toolbar;
-    LinearLayout linearvideos;
+    LinearLayout linearvideos,noteslayout,quizlayout,yourpurchaselayot,walletlayout,liveclasslayout;
 
     ViewPager2 viewPager2;
     private final Runnable sliderRunnable = new Runnable() {
@@ -70,7 +72,13 @@ public class Learning extends Fragment {
         viewPager2 = view.findViewById(R.id.learningviewpager);
         shimmerFrameLayout = view.findViewById(R.id.shimmerlearning);
         linearvideos=view.findViewById(R.id.layoutvideos);
+        quizlayout=view.findViewById(R.id.quizlayout);
+        yourpurchaselayot=view.findViewById(R.id.yourpurchaselayout);
+        walletlayout=view.findViewById(R.id.walletlayout);
+        liveclasslayout=view.findViewById(R.id.liveclasslayout);
+
         streamkey=getArguments().getString("streamkey");
+        noteslayout=view.findViewById(R.id.noteslayout);
 
         database=FirebaseDatabase.getInstance();
                 NavHostFragment navHostFragment =
@@ -111,6 +119,39 @@ public class Learning extends Fragment {
                 navController.navigate(R.id.action_learning_to_folders,bundle);
             }
         });
+        noteslayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bundle.putString("streamkey",streamkey);
+                bundle.putString("foldertype","Notes");
+                navController.navigate(R.id.action_learning_to_folders,bundle);
+            }
+        });
+        quizlayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Coming soon please wait for next update", BaseTransientBottomBar.LENGTH_SHORT).show();
+            }
+        });
+        liveclasslayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Coming soon please wait for next update", BaseTransientBottomBar.LENGTH_SHORT).show();
+            }
+        });
+        yourpurchaselayot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.navigate(R.id.myPurchase);
+            }
+        });
+        walletlayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            navController.navigate(R.id.wallet);
+            }
+        });
+
 
 
 

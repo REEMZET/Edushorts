@@ -74,6 +74,11 @@ public class ChooseStream extends Fragment {
                     break;
                     case "quesbank": navController.navigate(R.id.action_chooseStream_to_quesbankyear,bundle);
                     break;
+                    case "library": navController.navigate(R.id.action_chooseStream_to_libraryList,bundle);
+                    break;
+                     case "lab": navController.navigate(R.id.action_chooseStream_to_labPracticalList,bundle);
+                    break;
+
                 }
 
             }
@@ -89,6 +94,10 @@ public class ChooseStream extends Fragment {
                     break;
                     case "quesbank": navController.navigate(R.id.action_chooseStream_to_quesbankyear,bundle);
                     break;
+                    case "library": navController.navigate(R.id.action_chooseStream_to_libraryList,bundle);
+                    break;
+                    case "lab": navController.navigate(R.id.action_chooseStream_to_labPracticalList,bundle);
+                    break;
                 }
             }
         });
@@ -102,6 +111,10 @@ public class ChooseStream extends Fragment {
                     case "learning": navController.navigate(R.id.action_chooseStream_to_learning, bundle);
                      break;
                     case "quesbank": navController.navigate(R.id.action_chooseStream_to_quesbankyear,bundle);
+                    break;
+                    case "library": navController.navigate(R.id.action_chooseStream_to_libraryList,bundle);
+                    break;
+                    case "lab": navController.navigate(R.id.action_chooseStream_to_labPracticalList,bundle);
                     break;
                 }
             }
@@ -118,6 +131,10 @@ public class ChooseStream extends Fragment {
                          break;
                     case "quesbank": navController.navigate(R.id.action_chooseStream_to_quesbankyear,bundle);
                     break;
+                    case "library": navController.navigate(R.id.action_chooseStream_to_libraryList,bundle);
+                    break;
+                    case "lab": navController.navigate(R.id.action_chooseStream_to_labPracticalList,bundle);
+                    break;
                 }
             }
         });
@@ -131,6 +148,10 @@ public class ChooseStream extends Fragment {
                     case "learning": navController.navigate(R.id.action_chooseStream_to_learning, bundle);
                      break;
                     case "quesbank": navController.navigate(R.id.action_chooseStream_to_quesbankyear,bundle);
+                    break;
+                    case "library": navController.navigate(R.id.action_chooseStream_to_libraryList,bundle);
+                    break;
+                    case "lab": navController.navigate(R.id.action_chooseStream_to_labPracticalList,bundle);
                     break;
                 }
             }

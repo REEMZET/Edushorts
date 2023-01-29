@@ -11,6 +11,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.github.barteksc.pdfviewer.PDFView;
+import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
 import com.reemzet.mycollege.R;
 
 import java.io.File;
@@ -43,7 +44,7 @@ public class PdfViewer extends Fragment {
                 .load();
 
         toolbar = getActivity().findViewById(R.id.toolbar);
-        toolbar.setTitle("Subject code-".concat(pdffile));
+        toolbar.setTitle(pdffile);
         toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

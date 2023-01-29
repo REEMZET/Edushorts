@@ -1,13 +1,13 @@
 package com.reemzet.mycollege.Model;
 
 public class UserModels {
-    String username,usercity,usercollege,usersem,userbranch,useruid,userpic,userdeviceid,accounttype,userphone,userregdate;
+ public   String username, usercity, usercollege, usersem, userbranch, useruid, userpic, userdeviceid, accounttype, userphone, userregdate, referalcode, appliedreferal, amount,referalcount;
 
     public UserModels() {
 
     }
 
-    public UserModels(String username, String usercity, String usercollege, String usersem, String userbranch, String useruid, String userpic, String userdeviceid, String accounttype, String userphone, String userregdate) {
+    public UserModels(String username, String usercity, String usercollege, String usersem, String userbranch, String useruid, String userpic, String userdeviceid, String accounttype, String userphone, String userregdate, String referalcode, String appliedreferal, String amount, String referalcount) {
         this.username = username;
         this.usercity = usercity;
         this.usercollege = usercollege;
@@ -19,9 +19,13 @@ public class UserModels {
         this.accounttype = accounttype;
         this.userphone = userphone;
         this.userregdate = userregdate;
+        this.referalcode = referalcode;
+        this.appliedreferal = appliedreferal;
+        this.amount = amount;
+        this.referalcount = referalcount;
     }
 
-    public String getUsername() {
+    public  String getUsername() {
         return username;
     }
 
@@ -107,5 +111,37 @@ public class UserModels {
 
     public void setUserregdate(String userregdate) {
         this.userregdate = userregdate;
+    }
+
+    public String getReferalcode() {
+        return referalcode;
+    }
+
+    public void setReferalcode(String referalcode) {
+        this.referalcode = referalcode;
+    }
+
+    public String getAppliedreferal() {
+        return appliedreferal;
+    }
+
+    public void setAppliedreferal(String appliedreferal) {
+        this.appliedreferal = appliedreferal;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
+    public String getReferalcount() {
+        return referalcount;
+    }
+
+    public void setReferalcount(String referalcount) {
+        this.referalcount = referalcount;
     }
 }

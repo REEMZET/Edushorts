@@ -23,13 +23,15 @@ public class SubjectfolderAdapter extends RecyclerView.Adapter<SubjectfolderAdap
 
     ArrayList<SubjectFolderModels> list;
     Context context;
-    String folderref;
+    String streamkey,foldertype;
     NavController navController;
 
-    public SubjectfolderAdapter(ArrayList<SubjectFolderModels> list, Context context, String folderref) {
+
+    public SubjectfolderAdapter(ArrayList<SubjectFolderModels> list, Context context, String streamkey, String foldertype) {
         this.list = list;
         this.context = context;
-        this.folderref = folderref;
+        this.streamkey = streamkey;
+        this.foldertype = foldertype;
     }
 
     @NonNull
@@ -50,10 +52,13 @@ public class SubjectfolderAdapter extends RecyclerView.Adapter<SubjectfolderAdap
 
         holder.itemView.setOnClickListener(v -> {
             Bundle bundle=new Bundle();
-
-           bundle.putString("folder",folderref+"/"+model.getFoldername());
-            navController.navigate(R.id.videosListFrag,bundle);
-
+            if (foldertype.equals("Notes")){
+                bundle.putString("folder",streamkey+"/"+foldertype+"/"+model.getFoldername());
+                navController.navigate(R.id.notesList,bundle);
+            }else{
+                bundle.putString("subfolder",streamkey+"/"+foldertype+"/"+model.getFoldername());
+                navController.navigate(R.id.subfolder,bundle);
+            }
         });
     }
 
@@ -64,7 +69,7 @@ public class SubjectfolderAdapter extends RecyclerView.Adapter<SubjectfolderAdap
 
     public static class subjectfolderviewholder extends RecyclerView.ViewHolder
     {
-        public    TextView foldername,itemcount;
+        public TextView foldername,itemcount;
         public subjectfolderviewholder(@NonNull View itemView)
         {
             super(itemView);
